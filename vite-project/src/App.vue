@@ -31,7 +31,7 @@ const tab = ref('images');
                   <q-item-section>
                     <q-item-label>
                       <q-item style="padding:0; min-height: 0">
-                        <q-item-section>그룹 이름</q-item-section>
+                        <q-item-section>그룹 이름2</q-item-section>
                         <q-item-section side>1시간 전</q-item-section>
                       </q-item>
                     </q-item-label>
@@ -62,6 +62,11 @@ const tab = ref('images');
               </q-card-actions>
             </q-card>
           </p>
+
+          <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn fab icon="add" color="accent" />
+          </q-page-sticky>
+
         </q-page>
       </q-page-container>
 
