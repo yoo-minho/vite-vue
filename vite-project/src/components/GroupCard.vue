@@ -24,19 +24,10 @@ const randomColor = () => `step-${Math.floor(Math.random() * 10)}`;
           <q-item-label caption>그룹에 대한 설명을 적는 공간입니다.</q-item-label>
         </q-item-section>
       </q-item>
-    </q-card-section>
-
-    <q-card-section>
-      <div class="row" style="text-align: center">
-        <div class="col">
-          티스토리 (2)
-        </div>
-        <div class="col">
-          벨로그 (1)
-        </div>
-        <div class="col">
-          브런치 (3)
-        </div>
+      <div style="float:right">
+        <q-chip square dense color="orange" text-color="white" size="md">Tistory (2)</q-chip>
+        <q-chip square dense color="green" text-color="white" size="md">Naver Blog</q-chip>
+        <q-chip square dense text-color="gray" size="md">Brunch</q-chip>
       </div>
     </q-card-section>
 
