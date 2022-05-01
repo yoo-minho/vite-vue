@@ -8,9 +8,7 @@ import 'quasar/src/css/index.sass'
 import App from './App.vue'
 
 const myApp = createApp(App)
-myApp.use(Quasar, {
-    plugins: {},
-})
+myApp.use(Quasar, {plugins: {}})
 myApp.use(createPinia())
 
 myApp.mount('#app')
