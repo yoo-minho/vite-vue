@@ -9,8 +9,8 @@ const {openGroupEditor} = useGroupStore();
   <div>
     <q-header bordered class="bg-primary text-white max-width">
       <q-toolbar>
-        <q-toolbar-title>그룹</q-toolbar-title>
         <q-btn flat round dense icon="search"/>
+        <q-toolbar-title>그룹</q-toolbar-title>
         <q-btn @click="openGroupEditor" flat round dense icon="add_circle_outline"/>
       </q-toolbar>
     </q-header>
