@@ -1,24 +1,19 @@
+<script setup>
+import GroupMain from './components/GroupMain.vue';
+import GroupEditor from './components/GroupEditor.vue';
+
+import {useGroupStore} from "./stores/group";
+import {storeToRefs} from 'pinia'
+
+const {isOpen} = storeToRefs(useGroupStore())
+</script>
+
 <template>
   <div>
     <q-layout view="lHr LpR lFr" class="shadow-2 rounded-borders">
 
-      <q-header bordered class="bg-primary text-white max-width">
-        <q-toolbar>
-          <q-toolbar-title class="">
-            Codecrew.io
-          </q-toolbar-title>
-          <q-btn flat round dense icon="search" />
-          <q-btn flat round dense icon="add_circle_outline" />
-        </q-toolbar>
-      </q-header>
-
-      <q-page-container class="max-width">
-        <q-page class="q-pa-md">
-          <p v-for="n in 15" :key="n">
-            <GroupCard/>
-          </p>
-        </q-page>
-      </q-page-container>
+      <GroupMain v-if="!isOpen"/>
+      <GroupEditor v-if="isOpen"/>
 
       <q-footer bordered class="bg-white text-primary max-width">
         <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
@@ -31,10 +26,6 @@
     </q-layout>
   </div>
 </template>
-
-<script setup>
-import GroupCard from './components/GroupCard.vue'
-</script>
 
 <style>
 #app {

@@ -4,8 +4,7 @@ const randomColor = () => `step-${Math.floor(Math.random() * 10)}`;
 </script>
 
 <template>
-
-  <q-card class="my-card">
+  <q-card class="my-card" >
     <q-card-section>
       <q-item>
         <q-item-section side>
@@ -24,11 +23,6 @@ const randomColor = () => `step-${Math.floor(Math.random() * 10)}`;
           <q-item-label caption>그룹에 대한 설명을 적는 공간입니다.</q-item-label>
         </q-item-section>
       </q-item>
-      <div style="float:right">
-        <q-chip square dense color="orange" text-color="white" size="md">Tistory (2)</q-chip>
-        <q-chip square dense color="green" text-color="white" size="md">Naver Blog</q-chip>
-        <q-chip square dense text-color="gray" size="md">Brunch</q-chip>
-      </div>
     </q-card-section>
 
     <q-separator/>
@@ -40,16 +34,16 @@ const randomColor = () => `step-${Math.floor(Math.random() * 10)}`;
         </div>
         <div class="col-9">
           <div class="row">
-            <div class="left"></div>
-            <div class="row" style="width:240px; height: 20px">
+            <div class="left" style="width:20%;"></div>
+            <div class="row" style="width:80%;s">
               <div class="col-1 jandi-wrap" v-for="k in 12" :key="k">
                 <div class="month">{{ k }}</div>
               </div>
             </div>
           </div>
           <div v-for="n in 5" :key="n" class="row">
-            <div class="left">{{ n }} week</div>
-            <div class="row" style="width:240px; height: 20px">
+            <div class="left" style="width:20%;">{{ n }} week</div>
+            <div class="row" style="width:80%;">
               <div class="col-1 jandi-wrap" v-for="n in 12" :key="n">
                 <div
                     :class="{
@@ -67,11 +61,10 @@ const randomColor = () => `step-${Math.floor(Math.random() * 10)}`;
   </q-card>
 </template>
 
-<style>
+<style scoped>
 .left {
   color: #ccc;
   font-size: 12px;
-  width: 50px;
 }
 
 .jandi-desc {
