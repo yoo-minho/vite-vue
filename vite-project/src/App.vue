@@ -4,7 +4,9 @@ import GroupEditor from './components/GroupEditor.vue';
 
 import {useGroupStore} from "./stores/group";
 import {storeToRefs} from 'pinia'
+import {ref} from "vue";
 
+const tab = ref('images');
 const {isOpen} = storeToRefs(useGroupStore())
 </script>
 
