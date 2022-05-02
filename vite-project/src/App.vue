@@ -43,7 +43,5 @@ ul {
 .max-width {
   max-width: 460px;
   margin: 0 auto;
-  border-right: 1px solid #eee;
-  border-left: 1px solid #eee;
 }
 </style>
