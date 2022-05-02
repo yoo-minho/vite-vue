@@ -17,14 +17,6 @@ const {isOpen} = storeToRefs(useGroupStore())
       <GroupMain v-if="!isOpen"/>
       <GroupEditor v-if="isOpen"/>
 
-      <q-footer bordered class="bg-white text-primary max-width">
-        <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
-          <q-tab name="images" label="라운지"/>
-          <q-tab name="videos" label="그룹"/>
-          <q-tab name="articles" label="설정"/>
-        </q-tabs>
-      </q-footer>
-
     </q-layout>
   </div>
 </template>

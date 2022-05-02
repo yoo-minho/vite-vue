@@ -16,8 +16,8 @@ const {openGroupEditor} = useGroupStore();
     </q-header>
 
     <q-page-container class="max-width">
-      <q-scroll-area :visible="false"
-                     style="height: calc(100vh - 100px); max-width: 460px;">
+      <q-scroll-area :visible="false" class="max-width"
+                     style="height: calc(100vh - 100px);">
         <q-page class="q-pa-md">
           <p v-for="n in 15" :key="n">
             <GroupCard/>
@@ -25,6 +25,14 @@ const {openGroupEditor} = useGroupStore();
         </q-page>
       </q-scroll-area>
     </q-page-container>
+
+    <q-footer bordered class="bg-white text-primary max-width">
+      <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
+        <q-tab name="images" label="그룹"/>
+        <q-tab name="videos" label="블로그"/>
+        <q-tab name="articles" label="프로필"/>
+      </q-tabs>
+    </q-footer>
   </div>
 </template>
 

@@ -35,7 +35,7 @@ const randomColor = () => `step-${Math.floor(Math.random() * 10)}`;
         <div class="col-9">
           <div class="row">
             <div class="left" style="width:20%;"></div>
-            <div class="row" style="width:80%;s">
+            <div class="row" style="width:80%;">
               <div class="col-1 jandi-wrap" v-for="k in 12" :key="k">
                 <div class="month">{{ k }}</div>
               </div>
@@ -69,7 +69,6 @@ const randomColor = () => `step-${Math.floor(Math.random() * 10)}`;
 
 .jandi-desc {
   word-break: break-word;
-  padding-right: 16px;
 }
 
 .jandi-wrap {
