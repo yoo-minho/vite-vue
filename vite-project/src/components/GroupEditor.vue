@@ -21,7 +21,7 @@ const email = ref('');
   <q-page-container class="max-width">
     <q-page class="q-pa-md">
       <div class="q-gutter-y-md column">
-        <q-input v-model="email" type="email" prefix="전용링크" suffix=".logcrew.com" />
+        <q-input v-model="email" type="email" prefix="" suffix=".logcrew.com" />
         <q-input
             v-model="groupName"
             label="그룹 이름"/>
