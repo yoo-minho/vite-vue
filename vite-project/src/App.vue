@@ -43,4 +43,8 @@ ul {
   min-width: 375px;
   margin: 0 auto;
 }
+
+.container-without-header-n-footer {
+  height: calc(100vh - 100px);
+}
 </style>

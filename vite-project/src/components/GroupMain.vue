@@ -16,8 +16,7 @@ const {openGroupEditor} = useGroupStore();
     </q-header>
 
     <q-page-container class="max-width">
-      <q-scroll-area :visible="false" class="max-width"
-                     style="height: calc(100vh - 100px);">
+      <q-scroll-area :visible="false" class="max-width container-without-header-n-footer">
         <q-page class="q-pa-md">
           <p v-for="n in 15" :key="n">
             <GroupCard/>
