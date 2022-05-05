@@ -4,6 +4,8 @@ import {createPinia} from 'pinia'
 
 import '@quasar/extras/material-icons/material-icons.css'
 import 'quasar/src/css/index.sass'
+import '@quasar/extras/animate/fadeInUp.css'
+import '@quasar/extras/animate/fadeOutDown.css'
 
 import App from './App.vue'
 

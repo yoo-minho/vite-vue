@@ -6,7 +6,7 @@ const {openGroupEditor} = useGroupStore();
 </script>
 
 <template>
-  <div>
+  <q-layout>
     <q-header bordered class="bg-primary text-white max-width">
       <q-toolbar>
         <q-btn flat round dense icon="search"/>
@@ -33,7 +33,7 @@ const {openGroupEditor} = useGroupStore();
         <q-tab name="articles" label="프로필"/>
       </q-tabs>
     </q-footer>
-  </div>
+  </q-layout>
 </template>
 
 <style>

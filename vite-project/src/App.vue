@@ -11,17 +11,23 @@ const {isOpen} = storeToRefs(useGroupStore())
 </script>
 
 <template>
-  <div>
-    <q-layout view="lHr LpR lFr" class="shadow-2 rounded-borders">
-
-      <GroupMain v-if="!isOpen"/>
+  <div class="max-width">
+    <transition-group
+        appear
+        enter-active-class="animated fadeInUp"
+        leave-active-class="animated fadeOutDown"
+    >
       <GroupEditor v-if="isOpen"/>
-
-    </q-layout>
+    </transition-group>
+    <GroupMain/>
   </div>
 </template>
 
 <style>
+body {
+  overflow: hidden;
+}
+
 #app {
   font-family: "Noto Sans KR", Avenir, Helvetica, Arial, sans-serif;
   color: #2c3e50;
@@ -34,6 +40,7 @@ ul {
 
 .max-width {
   max-width: 460px;
+  min-width: 375px;
   margin: 0 auto;
 }
 </style>
