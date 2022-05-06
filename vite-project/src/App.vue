@@ -1,13 +1,14 @@
 <script setup>
 import GroupMain from './components/GroupMain.vue';
 import GroupEditor from './components/GroupEditor.vue';
+import LinkEditor from './components/LinkEditor.vue';
 
 import {useGroupStore} from "./stores/group";
 import {storeToRefs} from 'pinia'
 import {ref} from "vue";
 
 const tab = ref('images');
-const {isOpen} = storeToRefs(useGroupStore())
+const {isOpenGroupEditor, isOpenLinkEditor} = storeToRefs(useGroupStore())
 </script>
 
 <template>
@@ -17,7 +18,8 @@ const {isOpen} = storeToRefs(useGroupStore())
         enter-active-class="animated fadeInUp"
         leave-active-class="animated fadeOutDown"
     >
-      <GroupEditor v-if="isOpen"/>
+      <LinkEditor v-if="isOpenLinkEditor"/>
+      <GroupEditor v-if="isOpenGroupEditor"/>
     </transition-group>
     <GroupMain/>
   </div>
