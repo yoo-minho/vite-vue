@@ -1,8 +1,10 @@
 <script setup>
+import {ref} from "vue";
 import GroupCard from './GroupCard.vue';
 import {useGroupStore} from "../stores/group";
 
 const {openGroupEditor} = useGroupStore();
+const tab = ref('group');
 </script>
 
 <template>
@@ -27,9 +29,9 @@ const {openGroupEditor} = useGroupStore();
 
     <q-footer bordered class="bg-white text-primary max-width">
       <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
-        <q-tab name="images" label="그룹"/>
-        <q-tab name="videos" label="블로그"/>
-        <q-tab name="articles" label="프로필"/>
+        <q-tab name="group" label="그룹"/>
+        <q-tab name="blog" label="블로그"/>
+        <q-tab name="profile" label="프로필"/>
       </q-tabs>
     </q-footer>
   </q-layout>

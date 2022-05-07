@@ -1,6 +1,6 @@
 <script setup>
 import GroupCard from './GroupCard.vue';
-import {ref} from "vue";
+import {ref, computed} from "vue";
 import {BLOG_IMAGES} from "../constants";
 import {useGroupStore} from "../stores/group";
 
@@ -9,14 +9,15 @@ const groupName = ref('');
 const groupDescription = ref('');
 const email = ref('');
 
+const blogIcon = type => new URL(`../assets/${BLOG_IMAGES[type]}`, import.meta.url);
 const linkCounter = () => links.length > 0 ? `(${links.length}/10)` : '';
 
 initLinks();
 </script>
 
 <template>
-  <q-layout id="groupEditor">
-    <q-header bordered class="bg-primary text-white max-width">
+  <q-layout id="groupEditor" class="max-width">
+    <q-header bordered class="bg-primary text-white">
       <q-toolbar>
         <q-btn @click="closeGroupEditor" flat round dense icon="close"/>
         <q-toolbar-title>그룹 만들기</q-toolbar-title>
@@ -63,7 +64,7 @@ initLinks();
               hide-bottom-space
           />
           <q-btn color="primary" class="full-width" label="블로그 링크 추가" @click="openLinkEditor">
-            <span>{{linkCounter()}}</span>
+            <span>{{ linkCounter() }}</span>
           </q-btn>
 
           <q-list v-if="links.length > 0" bordered separator>
@@ -71,7 +72,7 @@ initLinks();
               <q-item clickable>
                 <q-item-section side>
                   <q-avatar rounded size="48px">
-                    <img :src="BLOG_IMAGES[v.type]" alt=""/>
+                    <img :src="blogIcon(v.type)" alt=""/>
                   </q-avatar>
                 </q-item-section>
                 <q-item-section>

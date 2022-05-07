@@ -15,10 +15,16 @@ const {isOpenGroupEditor, isOpenLinkEditor} = storeToRefs(useGroupStore())
   <div class="max-width">
     <transition-group
         appear
+        enter-active-class="animated fadeInRight"
+        leave-active-class="animated fadeOutLeft"
+    >
+      <LinkEditor v-if="isOpenLinkEditor"/>
+    </transition-group>
+    <transition-group
+        appear
         enter-active-class="animated fadeInUp"
         leave-active-class="animated fadeOutDown"
     >
-      <LinkEditor v-if="isOpenLinkEditor"/>
       <GroupEditor v-if="isOpenGroupEditor"/>
     </transition-group>
     <GroupMain/>
