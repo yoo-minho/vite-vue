@@ -2,6 +2,7 @@
 import GroupMain from './components/GroupMain.vue';
 import GroupEditor from './components/GroupEditor.vue';
 import LinkEditor from './components/LinkEditor.vue';
+import Stack from './components/Stack.vue';
 
 import {useGroupStore} from "./stores/group";
 import {storeToRefs} from 'pinia'
@@ -16,7 +17,7 @@ const {isOpenGroupEditor, isOpenLinkEditor} = storeToRefs(useGroupStore())
     <transition-group
         appear
         enter-active-class="animated fadeInRight"
-        leave-active-class="animated fadeOutLeft"
+        leave-active-class="animated fadeOutRight"
     >
       <LinkEditor v-if="isOpenLinkEditor"/>
     </transition-group>
@@ -27,7 +28,8 @@ const {isOpenGroupEditor, isOpenLinkEditor} = storeToRefs(useGroupStore())
     >
       <GroupEditor v-if="isOpenGroupEditor"/>
     </transition-group>
-    <GroupMain/>
+<!--    <GroupMain/>-->
+    <Stack/>
   </div>
 </template>
 

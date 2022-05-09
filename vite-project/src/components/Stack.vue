@@ -1,10 +1,10 @@
 <script setup>
-import {ref} from "vue";
 import GroupCard from './GroupCard.vue';
 import {useGroupStore} from "../stores/group";
+import {useQuasar} from 'quasar'
+import {BLOGS} from "../constants";
+import {ref} from "vue";
 
-const {openGroupEditor} = useGroupStore();
-const tab = ref('group');
 </script>
 
 <template>
@@ -12,17 +12,15 @@ const tab = ref('group');
     <q-header bordered class="bg-primary text-white max-width">
       <q-toolbar>
         <q-btn flat round dense icon="search"/>
-        <q-toolbar-title>그룹</q-toolbar-title>
-        <q-btn @click="openGroupEditor" flat round dense icon="add_circle_outline"/>
+        <q-toolbar-title>스택</q-toolbar-title>
+        <q-btn flat round dense icon="add_circle_outline"/>
       </q-toolbar>
     </q-header>
 
     <q-page-container class="max-width">
       <q-scroll-area :visible="false" class="max-width container-without-header-n-footer">
         <q-page class="q-pa-md">
-          <p v-for="n in 15" :key="n">
-            <GroupCard/>
-          </p>
+          Vue
         </q-page>
       </q-scroll-area>
     </q-page-container>
@@ -38,4 +36,5 @@ const tab = ref('group');
 </template>
 
 <style>
+
 </style>
