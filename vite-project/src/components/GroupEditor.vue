@@ -9,7 +9,7 @@ const groupName = ref('');
 const groupDescription = ref('');
 const email = ref('');
 
-const blogIcon = type => new URL(`../assets/${BLOG_IMAGES[type]}`, import.meta.url);
+const blogIcon = type => new URL(`../assets/images/${BLOG_IMAGES[type]}`, import.meta.url);
 const linkCounter = () => links.length > 0 ? `(${links.length}/10)` : '';
 
 initLinks();

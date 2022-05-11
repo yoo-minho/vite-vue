@@ -1,10 +1,15 @@
 <script setup>
 import {ref} from "vue";
 import GroupCard from './GroupCard.vue';
+import {storeToRefs} from 'pinia';
+import {usePageStore} from "../stores/page";
 import {useGroupStore} from "../stores/group";
 
 const {openGroupEditor} = useGroupStore();
-const tab = ref('group');
+const {tabName} = storeToRefs(usePageStore());
+const {setTabName} = usePageStore();
+
+const clickTab = v => setTabName(v);
 </script>
 
 <template>
@@ -28,10 +33,9 @@ const tab = ref('group');
     </q-page-container>
 
     <q-footer bordered class="bg-white text-primary max-width">
-      <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
-        <q-tab name="group" label="그룹"/>
-        <q-tab name="blog" label="블로그"/>
-        <q-tab name="stack" label="스택"/>
+      <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tabName">
+        <q-tab name="group" label="그룹" @click.prevent="clickTab('group')"/>
+        <q-tab name="stack" label="스택" @click.prevent="clickTab('stack')"/>
       </q-tabs>
     </q-footer>
   </q-layout>

@@ -5,11 +5,13 @@ import LinkEditor from './components/LinkEditor.vue';
 import Stack from './components/Stack.vue';
 
 import {useGroupStore} from "./stores/group";
-import {storeToRefs} from 'pinia'
+import {usePageStore} from "./stores/page";
+import {storeToRefs} from 'pinia';
 import {ref} from "vue";
 
 const tab = ref('images');
-const {isOpenGroupEditor, isOpenLinkEditor} = storeToRefs(useGroupStore())
+const {isOpenGroupEditor, isOpenLinkEditor} = storeToRefs(useGroupStore());
+const {tabName} = storeToRefs(usePageStore());
 </script>
 
 <template>
@@ -28,8 +30,8 @@ const {isOpenGroupEditor, isOpenLinkEditor} = storeToRefs(useGroupStore())
     >
       <GroupEditor v-if="isOpenGroupEditor"/>
     </transition-group>
-<!--    <GroupMain/>-->
-    <Stack/>
+    <GroupMain v-if="tabName === 'group'"/>
+    <Stack v-if="tabName === 'stack'"/>
   </div>
 </template>
 
