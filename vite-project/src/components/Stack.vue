@@ -1,10 +1,5 @@
 <script setup>
-import GroupCard from './GroupCard.vue';
-import {useGroupStore} from "../stores/group";
-import {useQuasar} from 'quasar'
-import {BLOGS} from "../constants";
-import {ref} from "vue";
-
+import StackCard from "./StackCard.vue";
 </script>
 
 <template>
@@ -20,7 +15,13 @@ import {ref} from "vue";
     <q-page-container class="max-width">
       <q-scroll-area :visible="false" class="max-width container-without-header-n-footer">
         <q-page class="q-pa-md">
-          Vue
+          <div class="row q-col-gutter-sm">
+
+            <div class="col-6" v-for="i in 5">
+              <StackCard></StackCard>
+            </div>
+
+          </div>
         </q-page>
       </q-scroll-area>
     </q-page-container>
