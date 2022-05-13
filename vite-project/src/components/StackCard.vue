@@ -1,4 +1,5 @@
 <script setup>
+/*vs code로?*/
 const props = defineProps({
   stackJson: Object
 })
