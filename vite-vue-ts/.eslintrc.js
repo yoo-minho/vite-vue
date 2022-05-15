@@ -5,9 +5,9 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   extends: [
-    'plugin:vue/vue3-recommended',
     '@vue/typescript/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:vue/vue3-recommended',
     'prettier',
   ],
   parserOptions: {
@@ -22,5 +22,4 @@ module.exports = {
       },
     },
   ],
-  rules: {},
 };
