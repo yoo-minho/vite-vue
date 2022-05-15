@@ -7,5 +7,13 @@ export default defineConfig({
   define: {
     'process.env': {},
   },
-  plugins: [vue(), eslintPlugin()],
+  plugins: [
+    vue({
+      template: { transformAssetUrls },
+    }),
+    eslintPlugin(),
+    quasar({
+      sassVariables: 'src/quasar-variables.sass',
+    }),
+  ],
 });

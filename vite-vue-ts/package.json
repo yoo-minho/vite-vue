@@ -10,6 +10,10 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "@quasar/extras": "^1.13.6",
+    "animate.css": "^4.1.1",
+    "pinia": "^2.0.14",
+    "quasar": "^2.6.6",
     "vue": "^3.2.25"
   },
   "devDependencies": {
