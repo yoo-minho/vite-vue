@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { toRefs } from 'vue';
+import { getStacksImageUrl } from '../constants';
 
 interface StackJson {
   name: string;
@@ -11,17 +12,14 @@ interface StackJson {
 }
 const props = defineProps<{ stackJson: StackJson }>();
 const { name, version, description, path, url, github_star } = toRefs(props.stackJson);
-
-const stackImage = new URL(`../assets/images/stacks/${path}`, import.meta.url).toString();
 const openUrl = (url: string) => window.open(url, 'stack');
-``;
 </script>
 
 <template>
   <q-item>
     <q-item-section top avatar style="cursor: pointer" @click="openUrl(url)">
       <q-avatar rounded size="80px">
-        <img :src="stackImage" style="object-fit: cover" />
+        <img :src="getStacksImageUrl(path)" style="object-fit: cover" />
       </q-avatar>
     </q-item-section>
 

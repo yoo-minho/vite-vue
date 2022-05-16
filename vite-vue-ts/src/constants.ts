@@ -2,10 +2,10 @@ import { BlogType } from './types/common';
 
 export const BLOGS = ['NAVER', 'TISTORY', 'VELOG'];
 export const BLOG_IMAGES = {
-  NAVER: 'blog-icon/naver.png',
-  TISTORY: 'blog-icon/tistory.png',
-  VELOG: 'blog-icon/velog.png',
+  NAVER: 'naver.png',
+  TISTORY: 'tistory.png',
+  VELOG: 'velog.png',
 };
-export function getBlogIconUrl(type: BlogType): string {
-  return new URL(`../assets/images/${BLOG_IMAGES[type]}`, import.meta.url).toString();
-}
+const getImageUrl = (path: string) => new URL(`./assets/images/${path}`, import.meta.url).toString();
+export const getBlogIconUrl = (type: BlogType): string => getImageUrl(`blog-icon/${BLOG_IMAGES[type]}`);
+export const getStacksImageUrl = (v: string): string => getImageUrl(`stacks/${v}`);

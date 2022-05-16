@@ -8,12 +8,17 @@ import { BlogType, ErrorMessage } from '../types/common';
 const { closeLinkEditor, links, addLink } = useGroupStore();
 const $q = useQuasar();
 const linkRules = [
-  (val: string): ErrorMessage => val?.includes('https://') || '링크에 https://를 포함해주세요!',
+  (val: string): ErrorMessage => val.includes('https://') || '링크에 https://를 포함해주세요!',
   (val: string): ErrorMessage => isAvailableUrl(val) || '불가능한 url',
 ];
 
 const getErrorMessage = (v: string): string => {
-  return (linkRules.map((func) => func(v)) as string[]).filter((v) => !!v)[0] || '';
+  const resultArr = linkRules.map((func) => func(v));
+  if (typeof resultArr[0] === 'string') {
+    return resultArr[0];
+  } else {
+    return '';
+  }
 };
 const isUpperIncludes = (x: string, y: string) => x.toUpperCase().includes(y.toUpperCase());
 const isAvailableUrl = (url: string): boolean => BLOGS.filter((blog) => isUpperIncludes(url, blog)).length > 0;
@@ -23,6 +28,7 @@ const blogUrl = ref('');
 
 function addBlogLink() {
   const errorMessage = getErrorMessage(blogUrl.value);
+  console.log({ errorMessage });
   if ('' !== errorMessage) {
     $q.notify({ type: 'negative', message: errorMessage });
     return;

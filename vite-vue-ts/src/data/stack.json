@@ -8,6 +8,14 @@
     "github_star": "196k"
   },
   {
+    "name": "Typescript",
+    "version": "",
+    "description": "TypeScript is a language for application scale JavaScript development",
+    "path": "typescript.png",
+    "url": "https://www.typescriptlang.org/",
+    "github_star": "80.6k"
+  },
+  {
     "name": "Vite",
     "version": "",
     "description": "Next Generation Frontend Tooling",
