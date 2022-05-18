@@ -32,6 +32,14 @@
     "github_star": "21.2k"
   },
   {
+    "name": "Vue Router",
+    "version": "4",
+    "description": "The official router for Vue.js.",
+    "path": "vue.png",
+    "url": "https://router.vuejs.org/",
+    "github_star": "18.8k"
+  },
+  {
     "name": "Pinia",
     "version": "",
     "description": "The Vue Store that you will enjoy using",

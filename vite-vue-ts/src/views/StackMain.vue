@@ -1,14 +1,6 @@
 <script setup lang="ts">
 import StackCard from '../components/StackCard.vue';
 import stackArray from '../data/stack.json';
-import { usePageStore } from '../stores/page';
-import { storeToRefs } from 'pinia';
-import { TabName } from '../types/common';
-
-const { tabName } = storeToRefs(usePageStore());
-const { setTabName } = usePageStore();
-
-const clickTab = (v: TabName): void => setTabName(v);
 </script>
 
 <template>
@@ -29,17 +21,6 @@ const clickTab = (v: TabName): void => setTabName(v);
         </q-page>
       </q-scroll-area>
     </q-page-container>
-
-    <q-footer bordered class="bg-white text-primary max-width">
-      <q-tabs v-model="tabName" no-caps active-color="primary" indicator-color="transparent" class="text-grey">
-        <router-link to="/">
-          <q-tab name="group" label="그룹" @click.prevent="clickTab('group')" />
-        </router-link>
-        <router-link to="/stack">
-          <q-tab name="stack" label="스택" @click.prevent="clickTab('stack')" />
-        </router-link>
-      </q-tabs>
-    </q-footer>
   </q-layout>
 </template>
 

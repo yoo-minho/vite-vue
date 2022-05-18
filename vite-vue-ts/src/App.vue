@@ -1,15 +1,25 @@
 <script setup lang="ts">
-import GroupMain from './components/GroupMain.vue';
-import GroupEditor from './components/GroupEditor.vue';
-import LinkEditor from './components/LinkEditor.vue';
-import StackMain from './components/StackMain.vue';
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 import { useGroupStore } from './stores/group';
-import { usePageStore } from './stores/page';
-import { storeToRefs } from 'pinia';
+
+import GroupEditor from './components/GroupEditor.vue';
+import LinkEditor from './components/LinkEditor.vue';
+import { TabName } from './types/common';
+
+const router = useRouter();
 
 const { isOpenGroupEditor, isOpenLinkEditor } = storeToRefs(useGroupStore());
-const { tabName } = storeToRefs(usePageStore());
+const HOME_TAB = 'group';
+const CURRENT_TAB = location.pathname.replace('/', '') || HOME_TAB;
+const tab = ref(CURRENT_TAB);
+
+function clickTab(tabName: TabName): void {
+  tab.value = tabName;
+  router.push({ path: `/${tabName === HOME_TAB ? '' : tabName}` });
+}
 </script>
 
 <template>
@@ -20,8 +30,17 @@ const { tabName } = storeToRefs(usePageStore());
     <transition-group appear enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
       <GroupEditor v-if="isOpenGroupEditor" />
     </transition-group>
-    <GroupMain v-if="tabName === 'group'" />
-    <StackMain v-if="tabName === 'stack'" />
+
+    <q-layout>
+      <router-view />
+
+      <q-footer bordered class="bg-white text-primary max-width">
+        <q-tabs v-model="tab" no-caps active-color="primary" indicator-color="transparent" class="text-grey">
+          <q-tab name="group" label="그룹" @click.prevent="clickTab('group')" />
+          <q-tab name="stack" label="스택" @click.prevent="clickTab('stack')" />
+        </q-tabs>
+      </q-footer>
+    </q-layout>
   </div>
 </template>
 

@@ -11,10 +11,13 @@ import '@quasar/extras/animate/fadeOutRight.css';
 
 import App from './App.vue';
 
+import router from './router';
+
 const myApp = createApp(App);
 myApp.use(Quasar, {
   plugins: { Notify, Dialog },
 });
 myApp.use(createPinia());
+myApp.use(router);
 
 myApp.mount('#app');
