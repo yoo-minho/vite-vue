@@ -8,8 +8,6 @@ const groupName = ref('');
 const groupDescription = ref('');
 const email = ref('');
 
-//test
-
 const linkCounter = () => (links.length > 0 ? `(${links.length}/10)` : '');
 
 initLinks();
