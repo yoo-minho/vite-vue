@@ -28,7 +28,6 @@ const blogUrl = ref('');
 
 function addBlogLink() {
   const errorMessage = getErrorMessage(blogUrl.value);
-  console.log({ errorMessage });
   if ('' !== errorMessage) {
     $q.notify({ type: 'negative', message: errorMessage });
     return;
