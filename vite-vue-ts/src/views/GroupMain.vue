@@ -2,6 +2,10 @@
 import GroupCard from '../components/GroupCard.vue';
 import { useGroupStore } from '../stores/group';
 
+import axios from 'axios';
+
+axios.get('http://localhost:5000/welcome');
+
 const { openGroupEditor } = useGroupStore();
 </script>
 
