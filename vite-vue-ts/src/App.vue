@@ -18,7 +18,7 @@ const tab = ref(CURRENT_TAB);
 
 function clickTab(tabName: TabName): void {
   tab.value = tabName;
-  router.push({ path: `/${tabName === HOME_TAB ? '' : tabName}` });
+  router.push({ path: `/${tabName === HOME_TAB ? '' : tabName}` }); //
 }
 </script>
 
